@@ -1,0 +1,28 @@
+main{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.card{
+    width: 400px;
+}
+.form-check{
+    width: 100px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+
+.form-seelct{
+    width: 100px;
+}
+
+.alert{
+    width: 400px;
+}
