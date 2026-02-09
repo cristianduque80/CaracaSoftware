@@ -1,12 +1,22 @@
 <?php
     include('dbOn.php');
+    include('functions.php');
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $query = "INSERT into $tableTypeUser (username,password) VALUE ('$username','$password')";
-    $result = mysqli_query($connection,$query);
-    if(!$result){
-        die('Query failed');
+    $stateUser = userExist($_POST['username']); //Si stateUser -> False (Usuario no existe)
+                                                //Si stateUser -> True (Usuario existe)
+    if($stateUser){
+        echo "Exist";
+    }else{
+         $registerUsername = $_POST['username'];
+        $registerPassword =$_POST['password'];
+        $registerTypeUser =$_POST['typeUser'];
+        
+        $query="INSERT INTO $table (username,password) VALUES ('$registerUsername','$registerPassword')";
+        
+        $result = mysqli_query($connection,$query);
+        
+        if($result){
+            echo "SEND";
+        }
     }
-    echo "User Add successful";
+   
