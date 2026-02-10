@@ -7,4 +7,5 @@
     
     $table =  $_POST['typeUser'];
 
-    $connection = mysqli_connect($host,$user,$password, $db);
+    $connection = mysqli_connect($host,$user,$password,$db);
+    

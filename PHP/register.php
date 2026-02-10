@@ -2,12 +2,12 @@
     include('dbOn.php');
     include('functions.php');
 
-    $stateUser = userExist($_POST['username']); //Si stateUser -> False (Usuario no existe)
-                                                //Si stateUser -> True (Usuario existe)
+    $stateUser = userExist($_POST['username']);   //Si stateUser -> False (Usuario no existe)
+                                                            //Si stateUser -> True (Usuario existe)
     if($stateUser){
         echo "Exist";
     }else{
-         $registerUsername = $_POST['username'];
+        $registerUsername = $_POST['username'];
         $registerPassword =$_POST['password'];
         $registerTypeUser =$_POST['typeUser'];
         

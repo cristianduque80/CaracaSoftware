@@ -1,4 +1,7 @@
+import {error, success} from './functions.js';//Importar las funciones de error y success desde el archivo functions.js
 $(document).ready(function(){//Metodo que se ejecuta cuando el documento esta listo
+
+  
 
     $('.alert').hide();//Ocultar las alertas al iniciar la pagina
 
@@ -8,6 +11,7 @@ $(document).ready(function(){//Metodo que se ejecuta cuando el documento esta li
             
             
             if($('#registerPassword').val() != $('#confirmPassword').val()){//Validar que las contraseñas coincidan
+                $('.pass').css('border-color','red');//Cambiar el color del borde de los campos de contraseña para indicar que hay un error
                 error('Passwords do not match');//Llamar a la funcion error y pasarle el mensaje de error
                 console.log('Las contraseñas no coinciden');
                 e.preventDefault();//Metodo que cancela el comportamiento por defecto del formulario
@@ -21,12 +25,12 @@ $(document).ready(function(){//Metodo que se ejecuta cuando el documento esta li
             $.post('./PHP/register.php',registerData,function (response) {
                 if(response=='Exist'){
                     console.log(response);
-                    error('User exist!!')
+                    error('User exist')
                     return;
                 }
                 console.log(response)
                 $('#registerForm').trigger('reset');//Reiniciar el formulario
-                success();//Llamar a la funcion success para mostrar el mensaje de exito
+                success('User registered successfully');//Llamar a la funcion success para mostrar el mensaje de exito
             });
             e.preventDefault();//Metodo que cancela el comportamiento por defecto del formulario
             
@@ -40,15 +44,15 @@ $(document).ready(function(){//Metodo que se ejecuta cuando el documento esta li
 })
 
 
-function error(errorType) { 
-    $('#alertSuccess').hide();//Ocultar la alerta de exito en caso de que se haya mostrado el exito anteriormente
-    $('#alertError').show();//Mostrar la alerta de error
-    $('#alertError').html(errorType);//Agregar el mensaje de error a la alerta
-}
+// function error(errorType) { 
+//     $('#alertSuccess').hide();//Ocultar la alerta de exito en caso de que se haya mostrado el exito anteriormente
+//     $('#alertError').show();//Mostrar la alerta de error
+//     $('#alertError').html(errorType);//Agregar el mensaje de error a la alerta
+// }
 
-function success() {
-    $('.pass').css('border-color','');//Restablecer el color del borde de los campos de contraseña en caso de que se haya mostrado el error anteriormente
-    $('#alertError').hide();//Ocultar la alerta de error en caso de que se haya mostrado el error anteriormente
-    $('#alertSuccess').show();//Mostrar la alerta de exito
-    $('#alertSuccess').html('User registered successfully');//Agregar el mensaje de exito a la alerta
-}
+// function success() {
+//     $('.pass').css('border-color','');//Restablecer el color del borde de los campos de contraseña en caso de que se haya mostrado el error anteriormente
+//     $('#alertError').hide();//Ocultar la alerta de error en caso de que se haya mostrado el error anteriormente
+//     $('#alertSuccess').show();//Mostrar la alerta de exito
+//     $('#alertSuccess').html('User registered successfully');//Agregar el mensaje de exito a la alerta
+// }
