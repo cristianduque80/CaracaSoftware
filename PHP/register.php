@@ -8,7 +8,7 @@
         echo "Exist";
     }else{
         $registerUsername = $_POST['username'];
-        $registerPassword =$_POST['password'];
+        $registerPassword = password_hash($_POST['password'],PASSWORD_DEFAULT);//Guardar contraseña encriptada en la db
         $registerTypeUser =$_POST['typeUser'];
         
         $query="INSERT INTO $table (username,password) VALUES ('$registerUsername','$registerPassword')";
