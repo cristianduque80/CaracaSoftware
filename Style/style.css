@@ -6,7 +6,6 @@ main{
     width: 100%;
 }
 
-
 .card{
     width: 400px;
 }
@@ -18,7 +17,6 @@ a:hover{
     text-decoration: none;
 }
 
-
 .form-seelct{
     width: 100px;
 }
@@ -26,3 +24,6 @@ a:hover{
 .alert{
     width: 400px;
 }
+
+
+

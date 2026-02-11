@@ -1,3 +1,4 @@
+
 import {error,success} from "./functions.js";//Importar las funciones de error y success desde el archivo functions.js
 $(document).ready(function(){//Metodo que se ejecuta cuando el documento esta listo
 
@@ -11,6 +12,8 @@ $(document).ready(function(){//Metodo que se ejecuta cuando el documento esta li
             return
         }
 
+
+        console.log($('#password').val().length);
         let logUser = {//Objeto que se crea para almacenar los datos del usuario que se va a logear
             typeUser: $('.form-check-input:checked').val(),
             username: $('#username').val(),
@@ -24,14 +27,11 @@ $(document).ready(function(){//Metodo que se ejecuta cuando el documento esta li
             }else{
                 error(response);
             }
+
+            
             
         })
-            
-        
-            console.log(logUser);
             e.preventDefault();
-
-
     });
 })
 
