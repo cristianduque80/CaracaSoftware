@@ -1,11 +1,20 @@
-main{
+/* Styles -> General */
+body{
+    position: absolute;
     height: 100vh;
+    width: 100%;
+}
+main{ 
+    position: relative;
+    top:71px;
+    height: 92.2vh;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
 
+/* Styles -> LogIn ; Index ; Register */
 .card{
     width: 400px;
 }
@@ -17,6 +26,11 @@ a:hover{
     text-decoration: none;
 }
 
+a {
+    text-decoration: none;
+
+}
+
 .form-seelct{
     width: 100px;
 }
@@ -25,5 +39,56 @@ a:hover{
     width: 400px;
 }
 
+/*Styles -> user_page*/
+.colNav_user
+{
+    width: 130px;
+    height: 92.2vh;
+}
 
 
+.navUser{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    z-index: 1000;
+}
+
+.user_info{
+    position: fixed; /* O sticky */
+    top: 0;
+    left: 200px; /* El ancho de tu nav */
+    width: calc(100% - 200px); /* Ocupa el resto exacto de la pantalla */
+    height: 80px;
+    background-color: aqua; /* Tu color actual */
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title{
+    padding-top: 25px;
+    text-align: center;
+    width: 100%;
+    height: 80px;
+}
+
+.options{
+    margin: auto;
+    height: 100px;
+    width: 75%;
+    height: 100%;
+
+}
+
+.opt_user{
+    border-radius: 100px;
+}
+
+img{
+    margin-bottom: 3px;
+    width: 15px;
+    height: 15px;
+}
