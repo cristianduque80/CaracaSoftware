@@ -8,17 +8,21 @@
     <title>Caracas Software</title>
 </head>
 <body>
+    <?php 
+    session_start();
+    session_unset();
+    ?>
     <nav class="fixed-top navbar navbar-expand bg-primary pb-0">
-        <a href="index.html"><h1 class="text-light ms-3">CaracaSoftware</h1></a>
+        <a href="index.php"><h1 class="text-light ms-3">CaracaSoftware</h1></a>
         <ul class=" list-group list-group-horizontal ms-auto">
             <h5 class="list-group-item border-0 bg-primary">
-                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="index.html">Home</a>
+                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="index.php">Home</a>
             </h5>
             <h5 class="nav-item list-group-item border-0 bg-primary">
-                <a class="text-light nav-link bg-primary list-group-item list-group-item-action border-0" href="logIn.html">Sign In</a>
+                <a class="text-light nav-link bg-primary list-group-item list-group-item-action border-0" href="logIn.php">Sign In</a>
             </h5>
             <h5 class="list-group-item border-0 bg-primary">
-                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="register.html">Sign Up</a>
+                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="register.php">Sign Up</a>
             </h5>
         </ul>
     </nav>

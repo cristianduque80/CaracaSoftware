@@ -1,7 +1,7 @@
 /* Styles -> General */
 body{
     position: absolute;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
 }
 main{ 
@@ -12,6 +12,10 @@ main{
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+button{
+    border-radius: 50%;
 }
 
 /* Styles -> LogIn ; Index ; Register */
@@ -62,10 +66,10 @@ a {
     left: 200px; /* El ancho de tu nav */
     width: calc(100% - 200px); /* Ocupa el resto exacto de la pantalla */
     height: 80px;
-    background-color: aqua; /* Tu color actual */
     display: flex;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 30px;
+    justify-content: flex-end;
 }
 
 .title{
@@ -83,12 +87,76 @@ a {
 
 }
 
-.opt_user{
+.opt_user,.user_data {
     border-radius: 100px;
 }
 
-img{
+.user_data_container{
+    display: inline-flex; 
+    align-items: center;  
+    padding: 5px 20px;    
+    gap: 10px;          
+    width: auto;         
+    margin-left: auto;
+}
+
+.img_nav{
     margin-bottom: 3px;
     width: 15px;
     height: 15px;
+}
+
+.img_user img{
+    width: 30px;
+    height: 30px;
+    display: flex;
+}
+
+.main_content{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:center;
+    margin-top: 80px;
+    margin-left: 200px;
+    min-height: calc(92.5vh - 80px );
+    height: auto;
+    width: calc(100% - 200px);
+    box-sizing: border-box;
+
+}
+
+.response_container{
+    width: 52.8%;
+    max-width: 410px;
+}
+
+textarea{
+    resize: none;
+}
+
+
+@media (max-width: 768px) {
+    .navUser {
+        width: 100%;
+        height: auto;
+        position: relative; /* Deja de ser lateral */
+    }
+
+    .user_info {
+        width: 100%;
+        left: 0;
+        position: relative;
+        justify-content: center;
+    }
+
+    .main_content {
+        margin-left: 0; /* Eliminamos el hueco de la izquierda */
+        margin-top: 0;
+        width: 100%;
+    }
+    
+    .card_project, .response_container {
+        max-width: 95% !important; /* Que no se salga de la pantalla */
+    }
 }

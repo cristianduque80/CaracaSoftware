@@ -8,15 +8,22 @@
     <title>Document</title>
 </head>
 <body>
+    <?php 
+        session_start();
+        ob_start();
+        if(!$_SESSION['name'] ||  !$_SESSION['lastName']){
+            header("location:../../index.php");
+        }
+    ?>
     <nav class="navUser shadow bg-primary bg-gradient">
         <div class="title">
             <h4 class="text-light"><b>CaracaSoftware</b></h4>
         </div>
         <div class="options list-group gap-3 mt-5">
-            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="">
+            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="main.php">
                 <div class="row">
                     <div class="col-1 ms-2" >
-                        <img class="text-light" src="../../Style/icons/user.svg" alt="">
+                        <img class="text-light img_nav" src="../../Style/icons/user.svg" alt="">
                     </div>
                     <div class="col" >
                         My Profile
@@ -26,17 +33,17 @@
             <a class="list-group-item-primary list-group-item-action text-light opt_user" href="">
                 <div class="row">
                     <div class="col-1 ms-2">
-                        <img class="text-light" src="../../Style/icons/createProjects.svg" alt="">
+                        <img class="text-light img_nav" src="../../Style/icons/createProjects.svg" alt="">
                     </div>
                     <div class="col" >
-                        Create a Projec
+                        Create a Project
                     </div>
                 </div>                
             </a>
-            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="">
+            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="my_project.php">
                 <div class="row">
                     <div class="col-1 ms-2" >
-                        <img class="text-light " src="../../Style/icons/myProjects.svg" alt="">
+                        <img class="text-light img_nav" src="../../Style/icons/myProjects.svg" alt="">
                     </div>
                     <div class="col" >
                         My Projects
@@ -45,8 +52,48 @@
             </a>
         </div>
     </nav>
+    
     <div class="user_info">
-       <!-- <h1>En proceso</h1> -->
+        <div class="bg-primary bg-gradient user_data user_data_container shadow">
+            <div class="img_user">
+                <img src="../../Style/icons/user-circle.svg" alt="">
+            </div>
+            <div class="text_user">
+                <h5 class="mt-1 text-light"><?php echo $_SESSION['name'].' '. $_SESSION['lastName']?></h5>
+            </div>
+        </div>
     </div>
+
+    <main class="main_content">
+            <div class="card shadow-sm p-3 card_project shadow">
+                <div class="card-head">
+                        <h2 class="text-primary card-title"><b>Project</b></h2>
+                        <hr>
+                </div>
+                <div class="card-body pt-0">
+                    <form id="form_project">
+                        <div>
+                            <label class="form-label" for="project_title"><b>Project Title</b></label>
+                            <input class="form-control" type="text" name="" id="project_title">
+                        </div>
+                        <div class="mt-3">
+                            <label class="form-label" for="project_description"><b>Project Description</b></label>
+                            <textarea class="form-control" name="" id="project_description" cols="45" rows="10"></textarea>
+                        </div>
+                        <div class="d-grid col mx-auto mt-3">
+                            <button class="btn btn-primary" type="submit">Submit</button>                        
+                        </div>
+                    </form>
+                </div> 
+            </div>
+            <div class="response_container">
+                <div id="alertError" class="w-100 alert alert-dismissible alert-danger mt-2">  </div>
+                <div id="alertSuccess" class="w-100 alert alert-dismissible alert-success mt-2">  </div>
+            </div>
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    <script type="module" src="../../JS/user_js/register_project.js"></script>
 </body>
 </html>

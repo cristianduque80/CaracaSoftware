@@ -1,9 +1,14 @@
 <?php
-    include('dbOn.php');
-    include('functions.php');
+    include('dbOn.php');;
+    $table =  $_POST['typeUser'];
 
-    $stateUser = userExist($_POST['username']);   //stateUser -> false Username no existe -> registrar
-                                                  //stateUser -> true  Username Existente -> no registrar
+    session_start();
+    ob_start();
+    
+    
+
+    $stateUser = userExist($connection,$_POST['username'],$table);   //stateUser -> false Username no existe -> registrar
+                                                            //stateUser -> true  Username Existente -> no registrar
     if($stateUser){
         echo "Exist";
     }else{
@@ -12,7 +17,7 @@
         $registerTypeUser =$_POST['typeUser'];
         $registerName =$_POST['name'] ;
         $registerLastname =$_POST['lastName'];
-        
+
         $query="INSERT INTO $table (username,password,name,lastname) VALUES ('$registerUsername','$registerPassword','$registerName','$registerLastname')";
         
         $result = mysqli_query($connection,$query);
@@ -22,3 +27,13 @@
         }
     }
    include('dbOff.php');
+
+//Consulta existencia del usuario
+function userExist ($connection,$username,$table){
+    $query = "SELECT * FROM $table WHERE username LIKE '$username' ";
+    $result = mysqli_query($connection,$query);
+    while(mysqli_fetch_array($result)){
+        return true;
+    }
+    return false;
+} 

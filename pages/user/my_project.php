@@ -63,5 +63,25 @@
                 </div>
             </div>
     </div>
+
+    <main class="main_content">
+        <div class="col-7">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="col-4 text-center border">Title</th>
+                        <th class="text-center border">Description</th>
+                    </tr>
+                </thead>
+                <tbody id="my_project">
+                    
+                </tbody>
+            </table>            
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    <script type="module" src="../../JS/user_js/my_project.js"></script>
 </body>
 </html>

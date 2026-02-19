@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 09-02-2026 a las 20:22:22
+-- Servidor: localhost:3306
+-- Tiempo de generación: 11-02-2026 a las 22:28:30
 -- Versión del servidor: 8.4.3
--- Versión de PHP: 8.3.28
+-- Versión de PHP: 8.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,18 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admins` (
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) CHARACTER SET utf32 COLLATE utf32_general_ci NOT NULL,
+  `name` text NOT NULL,
+  `lastname` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Volcado de datos para la tabla `admins`
 --
 
-INSERT INTO `admins` (`username`, `password`) VALUES
-('Cristian', '12345'),
-('Dqqq', '123'),
-('Duque', '12345'),
-('Santiago', '12345');
+INSERT INTO `admins` (`username`, `password`, `name`, `lastname`) VALUES
+('Astroduq', '$2y$10$JDVm05EXo7yoEwxq/0J33eHlQ7u7yIPLbnweJIqOYOT25XsTbq76q', 'Cristian', 'Duque');
 
 -- --------------------------------------------------------
 
@@ -50,16 +49,17 @@ INSERT INTO `admins` (`username`, `password`) VALUES
 
 CREATE TABLE `user` (
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `name` text NOT NULL,
+  `lastname` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`username`, `password`) VALUES
-('Cristian', '12345'),
-('Dqqq', '12345');
+INSERT INTO `user` (`username`, `password`, `name`, `lastname`) VALUES
+('Disgusto', '$2y$10$E0srydWiL/MpyMSYvTkjhOaOyuRU4E86OOUkdBDLMhqvGMbcut3V.', 'Santiago', 'Goncalvez');
 
 --
 -- Índices para tablas volcadas
