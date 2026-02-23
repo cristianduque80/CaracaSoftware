@@ -16,5 +16,9 @@
         ];
     };
 
-    $jsonString = json_encode($json);
-    echo $jsonString;
+    if ($json!=[]){
+        $jsonString = json_encode($json);
+        echo $jsonString;
+    }else{
+        echo json_encode("Empty");
+    }

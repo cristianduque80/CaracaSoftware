@@ -14,9 +14,12 @@ main{
     width: 100%;
 }
 
-button{
-    border-radius: 50%;
+
+button, input[type="text"]{
+    border-radius: 5px;
 }
+
+
 
 /* Styles -> LogIn ; Index ; Register */
 .card{
@@ -117,8 +120,9 @@ a {
     flex-direction: column;
     justify-content:flex-start;
     align-items:center;
-    margin-top: 80px;
-    margin-left: 200px;
+    top: 80px;
+    left: 200px;
+    padding-top: 80px;
     min-height: calc(92.5vh - 80px );
     height: auto;
     width: calc(100% - 200px);

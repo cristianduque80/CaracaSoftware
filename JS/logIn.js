@@ -22,9 +22,9 @@ $(document).ready(function(){//Metodo que se ejecuta cuando el documento esta li
             if(response==true){
                     success('Login successful');//Llamar a la funcion success y pasarle el mensaje de exito
                     if(logUser.typeUser=='admins'){
-                       window.location.href = './pages/executive/main.php';//Redireccionar a la pagina principal de executive  
+                       window.location.href = './pages/executive/my_profile.php';//Redireccionar a la pagina principal de executive  
                     }else if(logUser.typeUser=='user'){
-                        window.location.href = './pages/user/main.php';//Redireccionar a la pagina principal de user 
+                        window.location.href = './pages/user/my_profile.php';//Redireccionar a la pagina principal de user 
                     } 
             }else{
                 error(response);
