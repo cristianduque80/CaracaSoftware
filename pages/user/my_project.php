@@ -15,6 +15,7 @@
             header("location:../../index.php");
         }
     ?>
+
     <nav class="navUser shadow bg-primary bg-gradient d-flex flex-column">
         <div class="title">
             <h4 class="text-light"><b>CaracaSoftware</b></h4>
@@ -86,6 +87,35 @@
 
     </main>
 
+    <div class="update-overlay" style = "display:none">
+        <div class="card shadow-sm p-3 card_project shadow">
+                <div class="card-head card-head-project d-flex justify-content-between align-items-center" >
+                        <h2 class="text-primary card-title m-0"><b>Update Project</b></h2>
+                        <img src="../../Style/icons/x.svg" id="btn-close-update" alt="Close">
+                </div>
+                <hr>
+                <div class="card-body pt-0">
+                    <form id="form_project">
+                        <div>
+                            <label class="form-label" for="project_title"><b>Project Title</b></label>
+                            <input class="form-control" type="text" name="" id="project_title">
+                        </div>
+                        <div class="mt-3">
+                            <label class="form-label" for="project_description"><b>Project Description</b></label>
+                            <textarea class="form-control" name="" id="project_description" cols="45" rows="10"></textarea>
+                        </div>
+                        <div class="d-grid col mx-auto mt-3">
+                            <button class="btn btn-primary" type="submit">Submit</button>                        
+                        </div>
+                    </form>
+                </div> 
+            </div>
+
+            <!-- <div class="response_container">
+                <div id="alertError" class="w-100 alert alert-dismissible alert-danger mt-2">  </div>
+                <div id="alertSuccess" class="w-100 alert alert-dismissible alert-success mt-2">  </div>
+            </div>     -->
+    </div>
     <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
     <script type="module" src="../../JS/user_js/my_project.js"></script>
 </body>
