@@ -164,6 +164,13 @@ textarea{
 }
 
 
+/*Style -> adm_page*/
+
+tr.is-dirty td {
+    background-color: #fff9c4 !important; /* Un amarillo suave */
+    transition: background-color 0.5s ease;
+}
+
 /*Responsive*/
 @media (max-width: 768px) {
     .navUser {

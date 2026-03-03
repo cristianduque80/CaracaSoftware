@@ -53,7 +53,7 @@
                                     <b><p>Type User: </p></b>
                                     <div class="ms-3">
                                         <select class="form-select form-select-sm" id="registerTypeUser">
-                                            <option hidden>Type</option>
+                                            <option hidden selected>Type</option>
                                             <option value="admins">Executive</option>
                                             <option value="user">User</option>
                                         </select>

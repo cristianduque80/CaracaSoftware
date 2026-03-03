@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="d-grid col-6 mb-2 mt-3 mx-auto">
-                            <button class="btn btn-primary" type="submit" s>Log In</button>
+                            <button class="btn btn-primary" type="submit" >Log In</button>
                         </div>
                     </form>
                     <p class="text-body-tertiary text-center">Don't have an account? <a href="register.html"><b>Sign Up</b></a></p>
