@@ -167,9 +167,20 @@ textarea{
 /*Style -> adm_page*/
 
 tr.is-dirty td {
-    background-color: #fff9c4 !important; /* Un amarillo suave */
+    background-color: #98D4ED !important; /* Un amarillo suave */
     transition: background-color 0.5s ease;
 }
+
+.priority-h td { 
+    background-color: #F28A8A !important; 
+} /* High -> Rojo claro */
+.priority-m td {
+     background-color: #EDA982 !important; 
+} /* Medium -> Naranja claro */
+.priority-l td { 
+    background-color: #E8DB92 !important; 
+} /* Low -> Amarillo claro */
+
 
 /*Responsive*/
 @media (max-width: 768px) {

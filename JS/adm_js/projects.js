@@ -11,33 +11,53 @@ $(document).ready(function(){
         }
         $.post('../../PHP/php_adm/project_search.php',{value},function(response){
             let project = JSON.parse (response);
-            let template = '';
-            project.forEach(item =>{
-                template +=`
-                <tr id=${item.id}>
-                    <td id="title" class="border">${item.title}</td>
-                    <td id="description" class="border">${item.description}</td>
-                    <td class="border col-2 text-center">
-                    <select class="form-select">
-                        <option hidden selected>None</option>
-                        <option value="h">High</option>
-                        <option value="m">Medium</option>
-                        <option value="l">Low</option>
-                    </select>
-                    </td>
-                </tr>
-            `
-            });
-            
-            $('#projects').html(template);
-            
             console.log(project);
+            let template = '';
+            if(project.length==0){
+                template = `
+                <tr>
+                    <th colspan="2" class="text-center border-0"><h3>Projects Empty</h3></th>
+                </tr>
+            `;
+            }else{
+                project.forEach(item =>{
+                    let priorityClass = '';
+                    if(item.priority=='h'){
+                        priorityClass='priority-h';
+                    }else if(item.priority=='m' ){
+                        priorityClass='priority-m';
+                    }else if(item.priority=='l'){
+                        priorityClass='priority-l';
+                    }
+
+                    template +=`
+                    <tr id="${item.id}" class="${priorityClass}">
+                        <td id="title" class="border">${item.title}</td>
+                        <td id="description" class="border">${item.description}</td>
+                        <td class="border col-2 text-center">
+                        <select class="form-select">
+                            <option hidden selected>None</option>
+                            <option value="h">High</option>
+                            <option value="m">Medium</option>
+                            <option value="l">Low</option>
+                        </select>
+                        </td>
+                    </tr>
+                `
+                });
+            }
+            $('#projects').html(template);
+           
         });
     });
 
     //Se le agrega una clase is-dirty a aquellos projectos que se les cambio la prioridad
     $(document).on('change','.form-select',function () {  
-        $(this).closest('tr').addClass('is-dirty');
+        let $row = $(this).closest('tr');//Seleccion del elemento padre 
+        let priority = $(this).val();
+
+        $row.addClass('is-dirty');
+        rowColor($row,priority)//Aplicando el color establecido
     });
 
     //Guardado de prioridad
@@ -69,7 +89,6 @@ $(document).ready(function(){
 function fetchProject () {
         $.get('../..//PHP/php_adm/projects.php', function(response){
         let list_projects = JSON.parse(response);
-        // console.log(list_projects);
         let template = '';
         if (list_projects=="Empty"){
             template = `
@@ -79,36 +98,40 @@ function fetchProject () {
             `;
         }else{
             list_projects.forEach(item =>{
-            let priority = '';
-            if(item.priority === 'h'){
-                priority = 'priority'
-            }
+                let priorityClass = '';
+                if(item.priority=='h'){
+                    priorityClass='priority-h';
+                }else if(item.priority=='m' ){
+                    priorityClass='priority-m';
+                }else if(item.priority=='l'){
+                    priorityClass='priority-l';
+                }
 
-            template+=`
-                <tr id=${item.id}>
-                    <td id="title" class="border">${item.title}</td>
-                    <td id="description" class="border">${item.description}</td>
-                    <td class="border col-2 text-center">
-                    <select class="form-select"}">
-                        <option value="" ${item.priority == null ? 'selected' : ''} hidden selected>None</option>
-                        <option value="h" ${item.priority == 'h' ? 'selected' : ''}>High</option>
-                        <option value="m" ${item.priority == 'm' ? 'selected' : ''}>Medium</option>
-                        <option value="l" ${item.priority == 'h' ? 'selected' : ''}>Low</option>
-                    </select>
-                    </td>
-                </tr>
-            `;   
+                template+=`
+                    <tr class="${priorityClass}" id="${item.id}">
+                        <td id="title" class="border">${item.title}</td>
+                        <td id="description" class="border">${item.description}</td>
+                        <td class="border col-2 text-center">
+                        <select class="form-select"}">
+                            <option value="" ${!item.priority ? 'selected' : ''} hidden selected>None</option>
+                            <option value="h" ${item.priority == 'h' ? 'selected' : ''}>High</option>
+                            <option value="m" ${item.priority == 'm' ? 'selected' : ''}>Medium</option>
+                            <option value="l" ${item.priority == 'l' ? 'selected' : ''}>Low</option>
+                        </select>
+                        </td>
+                    </tr>
+                `;   
         });
         }
-       
         $('#projects').html(template);
     });
 }
 
-function rowColor (){
+//Funcion para actualizar color de fondo de la fila segunda la prioridad
+function rowColor ($row,priority){
     $row.removeClass('priority-h priority-m priority-l');
 
-    if (priority === 'h') $row.addClass('priority-high');
-    else if (priority === 'm') $row.addClass('priority-medium');
-    else if (priority === 'l') $row.addClass('priority-low');
+    if (priority === 'h') $row.addClass('priority-h');
+    else if (priority === 'm') $row.addClass('priority-m');
+    else if (priority === 'l') $row.addClass('priority-l');
 }

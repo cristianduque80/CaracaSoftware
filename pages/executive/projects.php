@@ -70,6 +70,7 @@
                     <tr>
                         <th class="col-4 text-center border">Title</th>
                         <th class="text-center border">Description</th>
+                        <th class="text-center border">Priority</th>
                     </tr>
                 </thead>
                 <tbody id="projects">
