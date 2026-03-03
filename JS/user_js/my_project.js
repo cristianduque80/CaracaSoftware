@@ -13,17 +13,43 @@ $(document).ready(function(){
     })
 
     $(document).on('click','.update', function (){
-        let project = $(this)[0].parentElement.parentElement;//Seleccion del elemento padre primario del projecto
-        let projectId = $(project).attr('id');//Obtencion del ID del elemento padre primario
-        $.post('../../PHP/php_user/project_update.php',{projectId, function (response){  
-            console.log(response);
-        }})
-
         $('.update-overlay').show();
+
+        let project = $(this)[0].parentElement.parentElement;//Seleccion del elemento padre primario del projecto
+        let projectattr = $(project).attr('id'); //Obtencion del ID del elemento padre primario
+        update(projectattr);
     });
 
     $(document).on('click','#btn-close-update', function (){
         $('.update-overlay').hide();
+    });
+
+    $('#searchProject').on('keyup',function (){
+        let value = $('#searchProject').val();
+        if(value==''){
+            fetchProject();
+            return;
+        }
+        $.post('../../PHP/php_user/project_search.php',{value},function(response){
+            let project = JSON.parse (response);
+            let template = '';
+            project.forEach(item =>{
+                template +=`
+                <tr id=${item.id}>
+                    <td id="title" class="border">${item.title}</td>
+                    <td id="description" class="border">${item.description}</td>
+                    <td class="border col-2">
+                    <button class="btn btn-danger m-0 delete">Delete</button>
+                    <button class="btn btn-primary m-0 update">Update</button>
+                    </td>
+                </tr>
+            `
+            });
+            
+            $('#my_project').html(template);
+            
+            console.log(project);
+        });
     });
 })
 
@@ -31,7 +57,7 @@ $(document).ready(function(){
 function fetchProject () {
         $.get('../..//PHP/php_user/my_project.php', function(response){
         let list_projects = JSON.parse(response);
-        console.log(list_projects);
+        // console.log(list_projects);
         let template = '';
         if (list_projects=="Empty"){
             template = `
@@ -55,5 +81,25 @@ function fetchProject () {
         }
        
         $('#my_project').html(template);
+    });
+}
+
+//Funcion para actualizar projecto
+function update (projecId){
+    $('#update').on('click',function (e){
+        let update_project = {
+            title: $('#project_title').val(),
+            description: $('#project_description').val(),
+            id: projecId
+        };
+
+        $.post('../../PHP/php_user/project_update.php',update_project,function (response){
+            fetchProject();
+            $('#form_project').trigger('reset');
+            $('.update-overlay').hide();
+            console.log(response);
+        }); 
+        
+        e.preventDefault();
     });
 }

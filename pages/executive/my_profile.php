@@ -12,12 +12,12 @@
         session_start();
         ob_start();
     ?>
-    <nav class="navUser shadow bg-primary bg-gradient">
+    <nav class="navUser shadow bg-primary bg-gradient d-flex flex-column">
         <div class="title">
             <h4 class="text-light"><b>CaracaSoftware</b></h4>
         </div>
         <div class="options list-group gap-3 mt-5">
-            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="">
+            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="#">
                 <div class="row">
                     <div class="col-1 ms-2" >
                         <img class="text-light img_nav" src="../../Style/icons/user.svg" alt="">
@@ -27,7 +27,7 @@
                     </div>
                 </div>                
             </a>
-            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="">
+            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="#">
                 <div class="row">
                     <div class="col-1 ms-2" >
                         <img class="text-light img_nav" src="../../Style/icons/myProjects.svg" alt="">
@@ -36,6 +36,11 @@
                         Projects
                     </div>
                 </div>                
+            </a>
+            <a href="../../index.php" class="text-decoration-none text-reset opt_user mt-auto mb-3">
+                <button class="btn btn-danger w-100"> 
+                        Exit
+                </button>
             </a>
         </div>
     </nav>

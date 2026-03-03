@@ -40,7 +40,7 @@
                                     <label class="mt-2" for="registerUsername"><b>Username</b></label>
                                     <input pattern="^[a-zA-Z0-9 ]+$" class="form-control" type="text" name="" id="registerUsername">
                                     <label class="mt-3" for="registerPassword"><b>Password</b></label>
-                                    <input pattern="^[a-zA-Z0-9 ]+$" class="pass form-control" type="password" name="" id="registerPassword" placeholder="8 characters long">
+                                    <input pattern="^[a-zA-Z0-9 ]+$" class="pass form-control" type="password" name="" id="registerPassword" placeholder="Min 8 characters">
                                     <label class="mt-3" for="confirmPassword"><b>Confirm Password</b></label>
                                     <input pattern="^[a-zA-Z0-9 ]+$" class="pass form-control" type="password" name="" id="confirmPassword">
                                     <label class="mt-3" for="name"><b>Name</b></label>

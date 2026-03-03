@@ -4,7 +4,6 @@
     ob_start();
     $table = "project";
 
-
     $user_id = $_SESSION['user_id'];
     $query = "SELECT * FROM $table WHERE user_id = '$user_id' ";
     $result = mysqli_query($connection,$query);
