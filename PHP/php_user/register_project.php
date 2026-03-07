@@ -6,7 +6,7 @@
     $title = $_POST['title'];
     $projectDescription = $_POST['projectDescription'];
     $user_id = $_SESSION['user_id'];
-    $table = 'project';
+    $table = 'project_evaluation';
 
     $query="INSERT INTO $table (title, description, user_id) VALUES ('$title','$projectDescription','$user_id') ";
     $result = mysqli_query($connection,$query);

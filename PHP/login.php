@@ -4,12 +4,9 @@
     
     //
     //CONTROL DE ERRORES:
-    //USARIO NO EXISTE    --> userDontExist
-    //ERROR DE CONTRASEÑA --> wrongPass
+    //USARIO NO EXISTE    --> false
+    //ERROR DE CONTRASEÑA --> false
     //
-
-    //Si userExist -> False (Usuario no existe)
-    //Si userExist -> True (Usuario existe)
     
     session_start();
     ob_start();
@@ -25,7 +22,6 @@
 
             $compHash = password_verify($password,$row['password']);
             if($compHash){
-
                 $_SESSION['name'] = $row['name'];
                 $_SESSION['lastName'] = $row['lastname'];
                 $_SESSION['user_id']=$row['id'];
@@ -41,6 +37,7 @@
         }else{
             echo "Wrong pass";
         }  
+        
     }else{
         echo "User Dont Exist";
     }

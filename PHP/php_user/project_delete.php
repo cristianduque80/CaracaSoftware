@@ -1,7 +1,7 @@
 <?php
     include("../dbOn.php");
-    $table = 'project';
     $id_project = $_POST['projectId'];
+    $table = "project_evaluation";
     
     $query = "DELETE FROM $table WHERE id = '$id_project'";
 

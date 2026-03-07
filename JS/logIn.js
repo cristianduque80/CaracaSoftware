@@ -25,6 +25,8 @@ $(document).ready(function(){//Metodo que se ejecuta cuando el documento esta li
                        window.location.href = './pages/executive/my_profile.php';//Redireccionar a la pagina principal de executive  
                     }else if(logUser.typeUser=='user'){
                         window.location.href = './pages/user/my_profile.php';//Redireccionar a la pagina principal de user 
+                    }else if((logUser.typeUser=='investor')){
+                         window.location.href = './pages/investor/my_profile.php';//Redireccionar a la pagina principal de investor 
                     } 
             }else{
                 error(response);

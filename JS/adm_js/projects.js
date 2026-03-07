@@ -33,7 +33,7 @@ $(document).ready(function(){
                     template +=`
                     <tr id="${item.id}" class="${priorityClass}">
                         <td id="title" class="border">${item.title}</td>
-                        <td id="description" class="border">${item.description}</td>
+                        <td id="description" class="border text-break">${item.description}</td>
                         <td class="border col-2 text-center">
                         <select class="form-select">
                             <option hidden selected>None</option>
@@ -82,6 +82,7 @@ $(document).ready(function(){
                 alert("Prioridades actualizadas correctamente.");
             });
         }
+        location.reload();
     });
 })
 
@@ -110,13 +111,13 @@ function fetchProject () {
                 template+=`
                     <tr class="${priorityClass}" id="${item.id}">
                         <td id="title" class="border">${item.title}</td>
-                        <td id="description" class="border">${item.description}</td>
+                        <td id="description" class="border text-break">${item.description}</td>
                         <td class="border col-2 text-center">
                         <select class="form-select"}">
                             <option value="" ${!item.priority ? 'selected' : ''} hidden selected>None</option>
-                            <option value="h" ${item.priority == 'h' ? 'selected' : ''}>High</option>
-                            <option value="m" ${item.priority == 'm' ? 'selected' : ''}>Medium</option>
-                            <option value="l" ${item.priority == 'l' ? 'selected' : ''}>Low</option>
+                            <option value="h" ${item.priority == 'h' ? 'selected hidden' : ''}>High</option>
+                            <option value="m" ${item.priority == 'm' ? 'selected hidden' : ''}>Medium</option>
+                            <option value="l" ${item.priority == 'l' ? 'selected hidden' : ''}>Low</option>
                         </select>
                         </td>
                     </tr>
@@ -124,6 +125,7 @@ function fetchProject () {
         });
         }
         $('#projects').html(template);
+        
     });
 }
 

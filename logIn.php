@@ -48,6 +48,10 @@
                                     <input class="form-check-input" type="radio" name="typeUser" value="user" id="user">
                                     <label for="user">User</label>  
                                 </div>
+                                <div class="form-check ms-5">
+                                    <input class="form-check-input" type="radio" name="typeUser" value="investor" id="investor">
+                                    <label for="investor">Investor</label>  
+                                </div>
                             </div>
                             
                             <div class="col mt-3 ps-4 pe-4" >

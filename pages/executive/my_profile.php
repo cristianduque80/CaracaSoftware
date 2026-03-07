@@ -51,7 +51,7 @@
                     <img src="../../Style/icons/user-circle.svg" alt="">
                 </div>
                 <div class="text_user">
-                    <h5 class="mt-1 text-light"><?php echo $_SESSION['name'].' '. $_SESSION['lastName']?></h5>
+                    <h5 class="mt-1 text-light"> <?php echo 'Executive: '.$_SESSION['name'].' '. $_SESSION['lastName']?></h5>
                 </div>
             </div>
     </div>

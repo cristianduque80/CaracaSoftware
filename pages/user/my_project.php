@@ -51,6 +51,16 @@
                     </div>
                 </div>                
             </a>
+            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="my_project_evaluation.php">
+                <div class="row">
+                    <div class="col-1 ms-2" >
+                        <img class="text-light img_nav" src="../../Style/icons/myProjects.svg" alt="">
+                    </div>
+                    <div class="col" >
+                        My Projects evaluation
+                    </div>
+                </div>                
+            </a>
             <a href="../../index.php" class="text-decoration-none text-reset opt_user mt-auto  mb-3">
                 <button class="btn btn-danger w-100"> 
                         Exit
@@ -65,7 +75,7 @@
                     <img src="../../Style/icons/user-circle.svg" alt="">
                 </div>
                 <div class="text_user">
-                    <h5 class="mt-1 text-light"><?php echo $_SESSION['name'].' '. $_SESSION['lastName']?></h5>
+                    <h5 class="mt-1 text-light"><?php echo 'User: '.$_SESSION['name'].' '. $_SESSION['lastName']?></h5>
                 </div>
             </div>
     </div>

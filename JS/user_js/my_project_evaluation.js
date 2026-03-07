@@ -30,7 +30,7 @@ $(document).ready(function(){
             fetchProject();
             return;
         }
-        $.post('../../PHP/php_user/project_search.php',{value},function(response){
+        $.post('../../PHP/php_user/project_search_evaluation.php',{value},function(response){
             let project = JSON.parse (response);
             let template = '';
             project.forEach(item =>{
@@ -38,6 +38,10 @@ $(document).ready(function(){
                 <tr id=${item.id}>
                     <td id="title" class="border">${item.title}</td>
                     <td id="description" class="border text-break">${item.description}</td>
+                    <td class="border col-2">
+                    <button class="btn btn-danger m-0 delete">Delete</button>
+                    <button class="btn btn-primary m-0 update">Update</button>
+                    </td>
                 </tr>
             `
             });
@@ -51,7 +55,7 @@ $(document).ready(function(){
 
 //Funcion de Busqueda de projectos
 function fetchProject () {
-        $.get('../..//PHP/php_user/my_project.php', function(response){
+        $.get('../..//PHP/php_user/my_project_evaluation.php', function(response){
         let list_projects = JSON.parse(response);
         // console.log(list_projects);
         let template = '';
@@ -67,6 +71,10 @@ function fetchProject () {
                 <tr id=${item.id}>
                     <td id="title" class="border">${item.title}</td>
                     <td id="description" class="border text-break">${item.description}</td>
+                    <td class="border col-2 text-center">
+                    <button class="btn btn-danger m-0 delete">Delete</button>
+                    <button class="btn btn-primary m-0 update">Update</button>
+                    </td>
                 </tr>
             `;   
         });

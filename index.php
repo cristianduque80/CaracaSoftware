@@ -13,7 +13,7 @@
     session_unset();
     ?>
     <nav class="fixed-top navbar navbar-expand bg-primary pb-0">
-        <a href="index.php"><h1 class="text-light ms-3">CaracaSoftware</h1></a>
+        <a href="index.php"><h1 class="text-light ms-2">CaracaSoftware</h1></a>
         <ul class=" list-group list-group-horizontal ms-auto">
             <h5 class="list-group-item border-0 bg-primary">
                 <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="index.php">Home</a>

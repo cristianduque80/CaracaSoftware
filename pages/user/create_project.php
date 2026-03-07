@@ -15,7 +15,8 @@
             header("location:../../index.php");
         }
     ?>
-     <nav class="navUser shadow bg-primary bg-gradient d-flex flex-column">
+
+    <nav class="navUser shadow bg-primary bg-gradient d-flex flex-column">
         <div class="title">
             <h4 class="text-light"><b>CaracaSoftware</b></h4>
         </div>
@@ -50,6 +51,16 @@
                     </div>
                 </div>                
             </a>
+            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="my_project_evaluation.php">
+                <div class="row">
+                    <div class="col-1 ms-2" >
+                        <img class="text-light img_nav" src="../../Style/icons/myProjects.svg" alt="">
+                    </div>
+                    <div class="col" >
+                        My Projects evaluation
+                    </div>
+                </div>                
+            </a>
             <a href="../../index.php" class="text-decoration-none text-reset opt_user mt-auto  mb-3">
                 <button class="btn btn-danger w-100"> 
                         Exit
@@ -64,7 +75,7 @@
                 <img src="../../Style/icons/user-circle.svg" alt="">
             </div>
             <div class="text_user">
-                <h5 class="mt-1 text-light"><?php echo $_SESSION['name'].' '. $_SESSION['lastName']?></h5>
+                <h5 class="mt-1 text-light"> <?php echo 'User: '.$_SESSION['name'].' '. $_SESSION['lastName']?></h5>
             </div>
         </div>
     </div>
@@ -83,7 +94,7 @@
                         </div>
                         <div class="mt-3">
                             <label class="form-label" for="project_description"><b>Project Description</b></label>
-                            <textarea class="form-control" name="" id="project_description" cols="45" rows="10"></textarea>
+                            <textarea maxlength="220" class="form-control" name="" id="project_description" cols="45" rows="10"></textarea>
                         </div>
                         <div class="d-grid col mx-auto mt-3">
                             <button class="btn btn-primary" type="submit">Submit</button>                        

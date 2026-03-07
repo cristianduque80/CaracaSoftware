@@ -56,6 +56,7 @@
                                             <option hidden selected>Type</option>
                                             <option value="admins">Executive</option>
                                             <option value="user">User</option>
+                                             <option value="investor">Investor</option>
                                         </select>
                                     </div>
                                 </div>
