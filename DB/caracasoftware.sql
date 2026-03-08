@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 19-02-2026 a las 21:42:28
+-- Tiempo de generación: 08-03-2026 a las 14:38:09
 -- Versión del servidor: 8.4.3
 -- Versión de PHP: 8.3.26
 
@@ -47,6 +47,28 @@ INSERT INTO `admins` (`id`, `username`, `password`, `name`, `lastname`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `investor`
+--
+
+CREATE TABLE `investor` (
+  `id` int NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` text NOT NULL,
+  `lastname` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Volcado de datos para la tabla `investor`
+--
+
+INSERT INTO `investor` (`id`, `username`, `password`, `name`, `lastname`) VALUES
+(1, 'Astroduq', '$2y$10$sqa1.Wh3WR/GVyL/Hs4eF.WVwy4t9dNVvyRjB3l7H/7eFgEztdSdO', 'Cristian', 'Duque'),
+(2, 'Luih', '$2y$10$0TLwfKhnjMjIeK.SispdMewwNK2CuncpJFZibtE0wK1N5xkQVNa2y', 'Lui', 'Meiker');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `project`
 --
 
@@ -54,19 +76,60 @@ CREATE TABLE `project` (
   `id` int NOT NULL,
   `title` varchar(255) CHARACTER SET utf32 COLLATE utf32_general_ci NOT NULL,
   `description` varchar(255) NOT NULL,
-  `user_id` int NOT NULL
+  `user_id` int NOT NULL,
+  `priority` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Volcado de datos para la tabla `project`
 --
 
-INSERT INTO `project` (`id`, `title`, `description`, `user_id`) VALUES
-(7, 'Prueba', '1234', 1),
-(10, 'Reparacion', 'Programa para la reparacion de equipos', 1),
-(17, 'Prueba2', 'PruebaPruebaPrueba', 1),
-(18, 'Prueba Luis Meiker', 'Sin luz mi niño', 1),
-(19, 'Prueba Luis', '12354', 3);
+INSERT INTO `project` (`id`, `title`, `description`, `user_id`, `priority`) VALUES
+(2, 'prueba', '123', 1, 'h'),
+(3, 'prueba 2', '123', 1, 'm'),
+(4, 'prueba 3', '1234567', 1, 'h'),
+(21, 'Respaldo ', 'numero 2', 1, 'm'),
+(22, 'Prueba ', '1', 1, 'm'),
+(23, 'Pruebaaa', '2', 1, 'l');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `project_evaluation`
+--
+
+CREATE TABLE `project_evaluation` (
+  `id` int NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `user_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Volcado de datos para la tabla `project_evaluation`
+--
+
+INSERT INTO `project_evaluation` (`id`, `title`, `description`, `user_id`) VALUES
+(5, 'Prueba de evaluacion', 'Sisa', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `project_votes`
+--
+
+CREATE TABLE `project_votes` (
+  `user_id` int NOT NULL,
+  `project_id` int NOT NULL,
+  `voted_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Volcado de datos para la tabla `project_votes`
+--
+
+INSERT INTO `project_votes` (`user_id`, `project_id`, `voted_at`) VALUES
+(1, 5, '2026-03-08 01:47:18');
 
 -- --------------------------------------------------------
 
@@ -101,11 +164,31 @@ ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `investor`
+--
+ALTER TABLE `investor`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `project`
 --
 ALTER TABLE `project`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indices de la tabla `project_evaluation`
+--
+ALTER TABLE `project_evaluation`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indices de la tabla `project_votes`
+--
+ALTER TABLE `project_votes`
+  ADD PRIMARY KEY (`user_id`,`project_id`),
+  ADD KEY `project_id` (`project_id`);
 
 --
 -- Indices de la tabla `user`
@@ -124,10 +207,22 @@ ALTER TABLE `admins`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `investor`
+--
+ALTER TABLE `investor`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT de la tabla `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT de la tabla `project_evaluation`
+--
+ALTER TABLE `project_evaluation`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
@@ -144,6 +239,19 @@ ALTER TABLE `user`
 --
 ALTER TABLE `project`
   ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `project_evaluation`
+--
+ALTER TABLE `project_evaluation`
+  ADD CONSTRAINT `project_evaluation_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `project_votes`
+--
+ALTER TABLE `project_votes`
+  ADD CONSTRAINT `project_votes_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project_evaluation` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `project_votes_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `investor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
