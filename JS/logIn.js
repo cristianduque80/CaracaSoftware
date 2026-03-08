@@ -12,18 +12,22 @@ $(document).ready(function(){//Metodo que se ejecuta cuando el documento esta li
             return
         }
 
-
-        console.log($('#password').val().length);
         let logUser = {//Objeto que se crea para almacenar los datos del usuario que se va a logear
             typeUser: $('.form-check-input:checked').val(),
             username: $('#username').val(),
-            password: $('#password').val()
+            password: $('#password').val(),
         }
 
         $.post('./PHP/login.php',logUser,function(response){
             if(response==true){
                     success('Login successful');//Llamar a la funcion success y pasarle el mensaje de exito
-                    window.location.href = './projectmanager.php';//Redireccionar a la pagina principal si el login es exitoso  
+                    if(logUser.typeUser=='admins'){
+                       window.location.href = './pages/executive/my_profile.php';//Redireccionar a la pagina principal de executive  
+                    }else if(logUser.typeUser=='user'){
+                        window.location.href = './pages/user/my_profile.php';//Redireccionar a la pagina principal de user 
+                    }else if((logUser.typeUser=='investor')){
+                         window.location.href = './pages/investor/my_profile.php';//Redireccionar a la pagina principal de investor 
+                    } 
             }else{
                 error(response);
             }

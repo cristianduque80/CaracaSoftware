@@ -8,17 +8,21 @@
     <title>Register</title>
 </head>
 <body>
+    <?php 
+    session_start();
+    session_unset();
+    ?>
     <nav class="fixed-top navbar navbar-expand bg-primary pb-0">
-        <a href="index.html"><h1 class="text-light ms-2">CaracaSoftware</h1></a>
+        <a href="index.php"><h1 class="text-light ms-2">CaracaSoftware</h1></a>
         <ul class=" list-group list-group-horizontal ms-auto">
             <h5 class="list-group-item border-0 bg-primary">
-                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="index.html">Home</a>
+                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="index.php">Home</a>
             </h5>
             <h5 class="nav-item list-group-item border-0 bg-primary">
-                <a class="text-light nav-link bg-primary list-group-item list-group-item-action border-0" href="logIn.html">Sign In</a>
+                <a class="text-light nav-link bg-primary list-group-item list-group-item-action border-0" href="logIn.php">Sign In</a>
             </h5>
             <h5 class="list-group-item border-0 bg-primary">
-                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="register.html">Sign Up</a>
+                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="register.php">Sign Up</a>
             </h5>
         </ul>
     </nav>
@@ -36,22 +40,23 @@
                                     <label class="mt-2" for="registerUsername"><b>Username</b></label>
                                     <input pattern="^[a-zA-Z0-9 ]+$" class="form-control" type="text" name="" id="registerUsername">
                                     <label class="mt-3" for="registerPassword"><b>Password</b></label>
-                                    <input pattern="^[a-zA-Z0-9 ]+$" class="pass form-control" type="password" name="" id="registerPassword" placeholder="8 characters long">
+                                    <input pattern="^[a-zA-Z0-9 ]+$" class="pass form-control" type="password" name="" id="registerPassword" placeholder="Min 8 characters">
                                     <label class="mt-3" for="confirmPassword"><b>Confirm Password</b></label>
                                     <input pattern="^[a-zA-Z0-9 ]+$" class="pass form-control" type="password" name="" id="confirmPassword">
                                     <label class="mt-3" for="name"><b>Name</b></label>
-                                    <input pattern="^[a-zA-Z]+$" class="pass form-control" type="text" name="" id="name">
+                                    <input pattern="^[a-zA-Z]+$" class="form-control" type="text" name="" id="name">
                                     <label class="mt-3" for="lastName"><b>Last Name</b></label>
-                                    <input pattern="^[a-zA-Z]+$" class="pass form-control" type="text" name="" id="lastName">
+                                    <input pattern="^[a-zA-Z]+$" class="form-control" type="text" name="" id="lastName">
                                     
                                 </div>
                                 <div class="col d-flex mt-3 mb-5">
                                     <b><p>Type User: </p></b>
                                     <div class="ms-3">
                                         <select class="form-select form-select-sm" id="registerTypeUser">
-                                            <option hidden>Type</option>
+                                            <option hidden selected>Type</option>
                                             <option value="admins">Executive</option>
                                             <option value="user">User</option>
+                                             <option value="investor">Investor</option>
                                         </select>
                                     </div>
                                 </div>

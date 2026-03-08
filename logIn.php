@@ -8,17 +8,21 @@
     <title>Log In</title>
 </head>
 <body>
+    <?php 
+    session_start();
+    session_unset();
+    ?>
     <nav class="fixed-top navbar navbar-expand bg-primary pb-0">
-        <a href="index.html"><h1 class="text-light ms-2">CaracaSoftware</h1></a>
+        <a href="index.php"><h1 class="text-light ms-2">CaracaSoftware</h1></a>
         <ul class=" list-group list-group-horizontal ms-auto">
             <h5 class="list-group-item border-0 bg-primary">
-                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="index.html">Home</a>
+                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="index.php">Home</a>
             </h5>
             <h5 class="nav-item list-group-item border-0 bg-primary">
-                <a class="text-light nav-link bg-primary list-group-item list-group-item-action border-0" href="logIn.html">Sign In</a>
+                <a class="text-light nav-link bg-primary list-group-item list-group-item-action border-0" href="logIn.php">Sign In</a>
             </h5>
             <h5 class="list-group-item border-0 bg-primary">
-                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="register.html">Sign Up</a>
+                <a class="icon-link icon-link-hover text-light bg-primary list-group-item  border-0" href="register.php">Sign Up</a>
             </h5>
         </ul>
     </nav>
@@ -44,6 +48,10 @@
                                     <input class="form-check-input" type="radio" name="typeUser" value="user" id="user">
                                     <label for="user">User</label>  
                                 </div>
+                                <div class="form-check ms-5">
+                                    <input class="form-check-input" type="radio" name="typeUser" value="investor" id="investor">
+                                    <label for="investor">Investor</label>  
+                                </div>
                             </div>
                             
                             <div class="col mt-3 ps-4 pe-4" >
@@ -61,7 +69,7 @@
                             </div>
                         </div>
                         <div class="d-grid col-6 mb-2 mt-3 mx-auto">
-                            <button class="btn btn-primary" type="submit">Log In</button>
+                            <button class="btn btn-primary" type="submit" >Log In</button>
                         </div>
                     </form>
                     <p class="text-body-tertiary text-center">Don't have an account? <a href="register.html"><b>Sign Up</b></a></p>

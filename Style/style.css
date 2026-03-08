@@ -1,11 +1,27 @@
+/* Styles -> General */
+body{
+    position: absolute;
+    min-height: 100vh;
+    width: 100%;
+}
 main{
-    height: 100vh;
+    position: relative;
+    top:71px;
+    height: 92.2vh;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
 
+
+button, input[type="text"]{
+    border-radius: 5px;
+}
+
+
+
+/* Styles -> LogIn ; Index ; Register */
 .card{
     width: 400px;
 }
@@ -17,6 +33,11 @@ a:hover{
     text-decoration: none;
 }
 
+a {
+    text-decoration: none;
+
+}
+
 .form-seelct{
     width: 100px;
 }
@@ -25,5 +46,164 @@ a:hover{
     width: 400px;
 }
 
+/*Styles -> user_page*/
+.colNav_user
+{
+    width: 130px;
+    height: 92.2vh;
+}
 
 
+.navUser{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    z-index: 1000;
+}
+
+.user_info{
+    position: fixed; /* O sticky */
+    top: 0;
+    left: 200px; /* El ancho de tu nav */
+    width: calc(100% - 200px); /* Ocupa el resto exacto de la pantalla */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    justify-content: flex-end;
+}
+
+.title{
+    padding-top: 25px;
+    text-align: center;
+    width: 100%;
+    height: 80px;
+}
+
+.options{
+    margin: auto;
+    height: 100px;
+    width: 75%;
+    height: 100%;
+
+}
+
+.opt_user,.user_data {
+    border-radius: 100px;
+}
+
+.user_data_container{
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 20px;
+    gap: 10px;
+    width: auto;
+    margin-left: auto;
+}
+
+.img_nav{
+    margin-bottom: 3px;
+    width: 15px;
+    height: 15px;
+}
+
+.img_user img{
+    width: 30px;
+    height: 30px;
+    display: flex;
+}
+
+.main_content{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:center;
+    top: 80px;
+    left: 200px;
+    padding-top: 80px;
+    min-height: calc(92.5vh - 80px );
+    height: auto;
+    width: calc(100% - 200px);
+    box-sizing: border-box;
+
+}
+
+.response_container{
+    width: 52.8%;
+    max-width: 410px;
+}
+
+textarea{
+    resize: none;
+}
+
+.update-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Oscurese el fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /*Asegura que este por encima de todo*/
+}
+
+#btn-close-update {
+    width: 24px;  /* Ajusta el tamaño según prefieras */
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Pequeño efecto al pasar el mouse */
+}
+
+.card-head-project{
+    display: flex;
+}
+
+
+/*Style -> adm_page*/
+
+tr.is-dirty td {
+    background-color: #98D4ED !important; /* Un amarillo suave */
+    transition: background-color 0.5s ease;
+}
+
+.priority-h td { 
+    background-color: #F28A8A !important; 
+} /* High -> Rojo claro */
+.priority-m td {
+     background-color: #EDA982 !important; 
+} /* Medium -> Naranja claro */
+.priority-l td { 
+    background-color: #E8DB92 !important; 
+} /* Low -> Amarillo claro */
+
+
+/*Responsive*/
+@media (max-width: 768px) {
+    .navUser {
+        width: 100%;
+        height: auto;
+        position: relative; /* Deja de ser lateral */
+    }
+
+    .user_info {
+        width: 100%;
+        left: 0;
+        position: relative;
+        justify-content: center;
+    }
+
+    .main_content {
+        margin-left: 0; /* Eliminamos el hueco de la izquierda */
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .card_project, .response_container {
+        max-width: 95% !important; /* Que no se salga de la pantalla */
+    }
+}

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 09-02-2026 a las 20:22:22
+-- Servidor: localhost:3306
+-- Tiempo de generación: 08-03-2026 a las 14:38:09
 -- Versión del servidor: 8.4.3
--- Versión de PHP: 8.3.28
+-- Versión de PHP: 8.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,19 +28,108 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
+  `id` int NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) CHARACTER SET utf32 COLLATE utf32_general_ci NOT NULL,
+  `name` text NOT NULL,
+  `lastname` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Volcado de datos para la tabla `admins`
 --
 
-INSERT INTO `admins` (`username`, `password`) VALUES
-('Cristian', '12345'),
-('Dqqq', '123'),
-('Duque', '12345'),
-('Santiago', '12345');
+INSERT INTO `admins` (`id`, `username`, `password`, `name`, `lastname`) VALUES
+(1, 'Astroduq', '$2y$10$.eYDUdIbQ1n275Hl0cSKI.1KqMID00qcWlEFBsL.jHLV5kuQ9A5cm', 'Cristian', 'Duque'),
+(2, 'Prueba', '$2y$10$OSryUBrfkQNQgGVnekGT9eJ2ZOMwmlRl8GZj9cUUMT35tq/h2V.I6', 'Cristian', 'Aristobulo'),
+(3, 'LittleDuque', '$2y$10$LxgZH3JkHGTlDJWrrnjtM.5ZZcDBrLFo/XmdN8KE/8PYu/U8rSS.6', 'Alex', 'Duque');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `investor`
+--
+
+CREATE TABLE `investor` (
+  `id` int NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` text NOT NULL,
+  `lastname` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Volcado de datos para la tabla `investor`
+--
+
+INSERT INTO `investor` (`id`, `username`, `password`, `name`, `lastname`) VALUES
+(1, 'Astroduq', '$2y$10$sqa1.Wh3WR/GVyL/Hs4eF.WVwy4t9dNVvyRjB3l7H/7eFgEztdSdO', 'Cristian', 'Duque'),
+(2, 'Luih', '$2y$10$0TLwfKhnjMjIeK.SispdMewwNK2CuncpJFZibtE0wK1N5xkQVNa2y', 'Lui', 'Meiker');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `project`
+--
+
+CREATE TABLE `project` (
+  `id` int NOT NULL,
+  `title` varchar(255) CHARACTER SET utf32 COLLATE utf32_general_ci NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `user_id` int NOT NULL,
+  `priority` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Volcado de datos para la tabla `project`
+--
+
+INSERT INTO `project` (`id`, `title`, `description`, `user_id`, `priority`) VALUES
+(2, 'prueba', '123', 1, 'h'),
+(3, 'prueba 2', '123', 1, 'm'),
+(4, 'prueba 3', '1234567', 1, 'h'),
+(21, 'Respaldo ', 'numero 2', 1, 'm'),
+(22, 'Prueba ', '1', 1, 'm'),
+(23, 'Pruebaaa', '2', 1, 'l');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `project_evaluation`
+--
+
+CREATE TABLE `project_evaluation` (
+  `id` int NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `user_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Volcado de datos para la tabla `project_evaluation`
+--
+
+INSERT INTO `project_evaluation` (`id`, `title`, `description`, `user_id`) VALUES
+(5, 'Prueba de evaluacion', 'Sisa', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `project_votes`
+--
+
+CREATE TABLE `project_votes` (
+  `user_id` int NOT NULL,
+  `project_id` int NOT NULL,
+  `voted_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Volcado de datos para la tabla `project_votes`
+--
+
+INSERT INTO `project_votes` (`user_id`, `project_id`, `voted_at`) VALUES
+(1, 5, '2026-03-08 01:47:18');
 
 -- --------------------------------------------------------
 
@@ -49,17 +138,20 @@ INSERT INTO `admins` (`username`, `password`) VALUES
 --
 
 CREATE TABLE `user` (
+  `id` int NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `name` text NOT NULL,
+  `lastname` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`username`, `password`) VALUES
-('Cristian', '12345'),
-('Dqqq', '12345');
+INSERT INTO `user` (`id`, `username`, `password`, `name`, `lastname`) VALUES
+(1, 'Astroduq', '$2y$10$Q/ka6fK62KWSHjE0hZZu/OLK8eFIXma0Yu3jM.xn6ZaJ33mAIZWvi', 'Cristian', 'Duque'),
+(3, 'Luih', '$2y$10$tCYJvI7ORHKBTzMHMWnaLOVuPYiwuALlXhYtGoz3oSszOCnXhZHja', 'Luis', 'Meiker');
 
 --
 -- Índices para tablas volcadas
@@ -69,13 +161,97 @@ INSERT INTO `user` (`username`, `password`) VALUES
 -- Indices de la tabla `admins`
 --
 ALTER TABLE `admins`
-  ADD PRIMARY KEY (`username`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `investor`
+--
+ALTER TABLE `investor`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indices de la tabla `project_evaluation`
+--
+ALTER TABLE `project_evaluation`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indices de la tabla `project_votes`
+--
+ALTER TABLE `project_votes`
+  ADD PRIMARY KEY (`user_id`,`project_id`),
+  ADD KEY `project_id` (`project_id`);
 
 --
 -- Indices de la tabla `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`username`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `investor`
+--
+ALTER TABLE `investor`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `project`
+--
+ALTER TABLE `project`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT de la tabla `project_evaluation`
+--
+ALTER TABLE `project_evaluation`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `project`
+--
+ALTER TABLE `project`
+  ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `project_evaluation`
+--
+ALTER TABLE `project_evaluation`
+  ADD CONSTRAINT `project_evaluation_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `project_votes`
+--
+ALTER TABLE `project_votes`
+  ADD CONSTRAINT `project_votes_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project_evaluation` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `project_votes_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `investor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
