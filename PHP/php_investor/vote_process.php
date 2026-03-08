@@ -15,20 +15,19 @@ if (mysqli_query($connection, $query_vote)) {
     $result = mysqli_query($connection, $query_count);
     $data = mysqli_fetch_assoc($result);
 
-    if ($data['total'] >= 10) {
-        // 3. MIGRACIÓN: Si llega a 10 votos, pasar a la tabla definitiva
-        
-        // Copiar datos a la tabla 'projects'
-        $move_query = "INSERT INTO projects (id, title, description) 
-                       SELECT id, title, description FROM projects_evaluation 
-                       WHERE id = '$project_id'";
-        
-        if (mysqli_query($connection, $move_query)) {
-            // Eliminar de la tabla de evaluación (los votos se borrarán por ON DELETE CASCADE)
-            mysqli_query($connection, "DELETE FROM projects_evaluation WHERE id = '$project_id'");
-            echo "ProjectApproved"; 
-        }
-    } else {
+  if ($data['total'] >= 2) {
+    // Migración: Seleccionamos el user_id (creador) directamente de project_evaluation
+    $move_query = "INSERT INTO project (id, title, description, user_id) 
+                   SELECT id, title, description, user_id 
+                   FROM project_evaluation 
+                   WHERE id = '$project_id'";
+    
+    if (mysqli_query($connection, $move_query)) {
+        // Al eliminar de evaluación, los votos se limpian solos por el CASCADE que ya configuraste
+        mysqli_query($connection, "DELETE FROM project_evaluation WHERE id = '$project_id'");
+        echo "ProjectApproved"; 
+    }
+} else {
         echo "VoteRegistered";
     }
 } else {
