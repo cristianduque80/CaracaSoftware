@@ -88,7 +88,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="col-4 text-center border">Title</th>
+                        <th class="col-3 text-center border">Title</th>
                         <th class="text-center border">Description</th>
                     </tr>
                 </thead>

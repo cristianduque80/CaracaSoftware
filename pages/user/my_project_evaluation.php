@@ -88,8 +88,9 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="col-4 text-center border">Title</th>
+                        <th class="col-3 text-center border">Title</th>
                         <th class="text-center border">Description</th>
+                        <th class="text-center border">Management Time</th>
                     </tr>
                 </thead>
                 <tbody id="my_project">
@@ -100,7 +101,7 @@
 
     </main>
 
-    <div class="update-overlay" style = "display:none">
+    <!-- <div class="update-overlay" style = "display:none">
         <div class="card shadow-sm p-3 card_project shadow">
             <div class="card-head card-head-project d-flex justify-content-between align-items-center" >
                 <h2 class="text-primary card-title m-0"><b>Update Project</b></h2>
@@ -123,12 +124,8 @@
                 </form>
             </div> 
         </div>
+    </div> -->
 
-            <!-- <div class="response_container">
-                <div id="alertError" class="w-100 alert alert-dismissible alert-danger mt-2">  </div>
-                <div id="alertSuccess" class="w-100 alert alert-dismissible alert-success mt-2">  </div>
-            </div>-->
-    </div>
     <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
     <script type="module" src="../../JS/user_js/my_project_evaluation.js"></script>
 </body>

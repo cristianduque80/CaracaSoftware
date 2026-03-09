@@ -18,27 +18,32 @@ $(document).ready(function(){
         let btn = $(this);
         let container = btn.closest('tr');
         let projectId = container.attr('id');
-
-        $.post('../../PHP/php_investor/vote_process.php', { project_id: projectId }, function(response) {
-            if(response.trim() == "VoteRegistered" || response.trim() == "ProjectApproved") {
-                // Deshabilitar botón tras votar
-                btn.prop('disabled', true).removeClass('btn-primary').addClass('btn-success');
-                alert("¡Voto registrado con éxito!");
-                
-                if(response.trim() == "ProjectApproved") {
-                    alert("¡El proyecto ha alcanzado los 2 votos y ha sido aprobado!");
-                    fetchProject(); // Recargamos para que desaparezca de evaluación
+        let container_title = container.find('.title_project');
+        let title = container_title.html();
+        
+         
+        if(confirm(`Are you sure you want to vote for the project: ${title} ?`)){
+            $.post('../../PHP/php_investor/vote_process.php', { project_id: projectId }, function(response) {
+                if(response.trim() == "VoteRegistered" || response.trim() == "ProjectApproved") {
+                    // Deshabilitar botón tras votar
+                    btn.prop('disabled', true).removeClass('btn-primary').addClass('btn-success');
+                    alert("¡Voto registrado con éxito!");
+                    
+                    if(response.trim() == "ProjectApproved") {
+                        alert("¡El proyecto ha alcanzado los 2 votos y ha sido aprobado!");
+                        fetchProject(); // Recargamos para que desaparezca de evaluación
+                    }
+                } else if (response.trim() == "AlreadyVoted") {
+                    alert("Ya has votado por este proyecto anteriormente.");
                 }
-            } else if (response.trim() == "AlreadyVoted") {
-                alert("Ya has votado por este proyecto anteriormente.");
-            }
-        });
+            });
+        }       
     });
 });
 
 function fetchProject() {
     $.get('../../PHP/php_investor/projects_vote.php', function(response){
-        renderTable(response);
+    renderTable(response);
     });
 }
 
@@ -58,9 +63,9 @@ function renderTable(response) {
 
             template += `
                 <tr id="${item.id}">
-                    <td class="border">${item.title}</td>
+                    <td class="border title_project">${item.title}</td>
                     <td class="border text-break">${item.description}</td>
-                    <td class="border col-2 text-center">
+                    <td class="border align-middle col-2 text-center">
                         <button class="btn ${btnClass} btn-vote" ${btnDisabled}>
                             <img src="../../Style/icons/like.svg" alt="">
                         </button>

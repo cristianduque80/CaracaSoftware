@@ -65,6 +65,7 @@ function fetchProject () {
             list_projects.forEach(item =>{
                 let priorityClass = '';
                 let priority='';
+
                 if(item.priority=='h'){
                     priorityClass='priority-h';
                     priority="high";
@@ -74,6 +75,8 @@ function fetchProject () {
                 }else if(item.priority=='l'){
                     priorityClass='priority-l';
                     priority="low";
+                }else if(!item.priority){
+                    priority = "none";
                 }
 
                 template+=`

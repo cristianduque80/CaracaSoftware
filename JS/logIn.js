@@ -22,11 +22,11 @@ $(document).ready(function(){//Metodo que se ejecuta cuando el documento esta li
             if(response==true){
                     success('Login successful');//Llamar a la funcion success y pasarle el mensaje de exito
                     if(logUser.typeUser=='admins'){
-                       window.location.href = './pages/executive/my_profile.php';//Redireccionar a la pagina principal de executive  
+                       window.location.href = './pages/executive/projects.php';//Redireccionar a la pagina principal de executive  
                     }else if(logUser.typeUser=='user'){
-                        window.location.href = './pages/user/my_profile.php';//Redireccionar a la pagina principal de user 
+                        window.location.href = './pages/user/my_project.php';//Redireccionar a la pagina principal de user 
                     }else if((logUser.typeUser=='investor')){
-                         window.location.href = './pages/investor/my_profile.php';//Redireccionar a la pagina principal de investor 
+                         window.location.href = './pages/investor/projects.php';//Redireccionar a la pagina principal de investor 
                     } 
             }else{
                 error(response);

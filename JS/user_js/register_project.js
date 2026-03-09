@@ -6,10 +6,11 @@ $(document).ready(function (){//Se ejecuta cuando el documento esta listo
     $('#form_project').on('submit',function(e){//Metodo que se ejecuta cuando se envia el formulario
         let projectData = {//Datos del projecto
             title: $('#project_title').val(),
-            projectDescription: $('#project_description').val()
+            projectDescription: $('#project_description').val(),
+            management_time: $('#managemenTime').val()
         }
-   
-       if( projectData.title.length == 0 || projectData.projectDescription.length == 0){//Verificando que los inputs no esten vacios
+        
+       if( projectData.title.length == 0 || projectData.projectDescription.length == 0 || projectData.management_time == 'Time'){//Verificando que los inputs no esten vacios
         error('All fields are required');
         e.preventDefault();
         return;

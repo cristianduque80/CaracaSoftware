@@ -90,11 +90,18 @@
                     <form id="form_project">
                         <div>
                             <label class="form-label" for="project_title"><b>Project Title</b></label>
-                            <input class="form-control" type="text" name="" id="project_title">
+                            <input maxlength="30" class="form-control" type="text" name="" id="project_title">
                         </div>
                         <div class="mt-3">
                             <label class="form-label" for="project_description"><b>Project Description</b></label>
                             <textarea maxlength="220" class="form-control" name="" id="project_description" cols="45" rows="10"></textarea>
+                        </div>
+                        <div class="mt-3">
+                            <select class="form-select form-select-sm" id="managemenTime">
+                                <option hidden selected>Time</option>
+                                <option value="1 Year">1 Year</option>
+                                <option value="2 Year">2 Year</option>
+                            </select>
                         </div>
                         <div class="d-grid col mx-auto mt-3">
                             <button class="btn btn-primary" type="submit">Submit</button>                        

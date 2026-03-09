@@ -55,6 +55,7 @@ $(document).ready(function(){
     $(document).on('change','.form-select',function () {  
         let $row = $(this).closest('tr');//Seleccion del elemento padre 
         let priority = $(this).val();
+        $('#btn-save').removeAttr('disabled');
 
         $row.addClass('is-dirty');
         rowColor($row,priority)//Aplicando el color establecido
@@ -82,7 +83,6 @@ $(document).ready(function(){
                 alert("Prioridades actualizadas correctamente.");
             });
         }
-        location.reload();
     });
 })
 
@@ -128,6 +128,7 @@ function fetchProject () {
         
     });
 }
+
 
 //Funcion para actualizar color de fondo de la fila segunda la prioridad
 function rowColor ($row,priority){

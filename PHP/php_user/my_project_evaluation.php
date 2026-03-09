@@ -12,7 +12,8 @@
         $json[] = [
             'id' => $row['id'],
             'title' => $row['title'],
-            'description' => $row['description']
+            'description' => $row['description'],
+            'managemenTime' => $row['management_time']
         ];
     };
 

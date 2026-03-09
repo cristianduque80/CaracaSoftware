@@ -53,7 +53,7 @@
                                     <label for="investor">Investor</label>  
                                 </div>
                             </div>
-                            
+
                             <div class="col mt-3 ps-4 pe-4" >
                                 <div class="container text-center ">
                                     <h3>User Data</h3>
