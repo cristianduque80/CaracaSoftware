@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="../../style/img/logo.png" type="image/x-icon">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../Style/bootstrap.min.css">
     <link rel="stylesheet" href="../../Style/style.css">
@@ -90,11 +91,11 @@
                     <form id="form_project">
                         <div>
                             <label class="form-label" for="project_title"><b>Project Title</b></label>
-                            <input maxlength="30" class="form-control" type="text" name="" id="project_title">
+                            <input maxlength="30" class="form-control" type="text" name="" id="project_title" placeholder="Maximum 30 characters">
                         </div>
                         <div class="mt-3">
                             <label class="form-label" for="project_description"><b>Project Description</b></label>
-                            <textarea maxlength="220" class="form-control" name="" id="project_description" cols="45" rows="10"></textarea>
+                            <textarea maxlength="300" class="form-control" name="" id="project_description" cols="45" rows="10" placeholder="Maximum 300 characters"></textarea>
                         </div>
                         <div class="mt-3">
                             <select class="form-select form-select-sm" id="managemenTime">

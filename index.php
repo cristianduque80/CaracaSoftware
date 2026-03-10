@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="style/img/logo.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Style/bootstrap.min.css">
@@ -27,8 +28,9 @@
         </ul>
     </nav>
 
-    <main>
-        <h1>WELCOME</h1>
+    <main class="d-flex flex-column justify-content-start align-items-center pt-4">
+        <!--<h1 class="mb-1 mt-4">WELCOME TO</h1>-->
+        <img src="style/img/logo.png" class="img-square" width="1500" height="750" alt="Logo Caracas Software">
     </main>
     
 

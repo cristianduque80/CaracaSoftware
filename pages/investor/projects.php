@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="../../style/img/logo.png" type="image/x-icon">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../Style/bootstrap.min.css">
     <link rel="stylesheet" href="../../Style/style.css">
@@ -21,7 +22,7 @@
             <h4 class="text-light"><b>CaracaSoftware</b></h4>
         </div>
         <div class="options list-group gap-3 mt-5">
-            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="#">
+            <!-- <a class="list-group-item-primary list-group-item-action text-light opt_user" href="#">
                 <div class="row">
                     <div class="col-1 ms-2" >
                         <img class="text-light img_nav" src="../../Style/icons/user.svg" alt="">
@@ -30,7 +31,7 @@
                         My Profile
                     </div>
                 </div>                
-            </a>
+            </a> -->
             <a class="list-group-item-primary list-group-item-action text-light opt_user" href="projects.php">
                 <div class="row">
                     <div class="col-1 ms-2" >

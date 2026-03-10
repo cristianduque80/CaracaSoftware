@@ -63,7 +63,7 @@ function fetchProject () {
         if (list_projects=="Empty"){
             template = `
                 <tr>
-                    <th colspan="2" class="text-center border-0"><h3>Projects Empty</h3></th>
+                    <th colspan="5" class="text-center border-0"><h3>Projects Empty</h3></th>
                 </tr>
             `;
         }else{

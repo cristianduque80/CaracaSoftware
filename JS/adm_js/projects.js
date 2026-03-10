@@ -30,7 +30,7 @@ $(document).ready(function(){
             if(project.length==0){
                 template = `
                 <tr>
-                    <th colspan="2" class="text-center border-0"><h3>Projects Empty</h3></th>
+                    <th colspan="6" class="text-center border-0"><h3>Projects Empty</h3></th>
                 </tr>
             `;
             }else{

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="style/img/logo.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Style/bootstrap.min.css">
@@ -72,7 +73,7 @@
                             <button class="btn btn-primary" type="submit" >Log In</button>
                         </div>
                     </form>
-                    <p class="text-body-tertiary text-center">Don't have an account? <a href="register.html"><b>Sign Up</b></a></p>
+                    <p class="text-body-tertiary text-center">Don't have an account? <a href="register.php"><b>Sign Up</b></a></p>
                 </div> 
             </div> 
             <div id="alertError" class="alert alert-dismissible alert-danger mt-2 w-100"> </div>
