@@ -15,10 +15,10 @@ if (mysqli_query($connection, $query_vote)) {
     $result = mysqli_query($connection, $query_count);
     $data = mysqli_fetch_assoc($result);
 
-  if ($data['total'] >= 2) {
+  if ($data['total'] >= 1) {
     // Migración: Seleccionamos el user_id (creador) directamente de project_evaluation
-    $move_query = "INSERT INTO project (id, title, description, user_id) 
-                   SELECT id, title, description, user_id 
+    $move_query = "INSERT INTO project (id, title, description, management_time,user_id) 
+                   SELECT id, title, description, management_time,user_id 
                    FROM project_evaluation 
                    WHERE id = '$project_id'";
     

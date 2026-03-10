@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 08-03-2026 a las 14:38:09
+-- Tiempo de generación: 10-03-2026 a las 02:46:21
 -- Versión del servidor: 8.4.3
 -- Versión de PHP: 8.3.26
 
@@ -76,6 +76,8 @@ CREATE TABLE `project` (
   `id` int NOT NULL,
   `title` varchar(255) CHARACTER SET utf32 COLLATE utf32_general_ci NOT NULL,
   `description` varchar(255) NOT NULL,
+  `management_time` varchar(50) NOT NULL,
+  `time_d` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int NOT NULL,
   `priority` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
@@ -84,13 +86,9 @@ CREATE TABLE `project` (
 -- Volcado de datos para la tabla `project`
 --
 
-INSERT INTO `project` (`id`, `title`, `description`, `user_id`, `priority`) VALUES
-(2, 'prueba', '123', 1, 'h'),
-(3, 'prueba 2', '123', 1, 'm'),
-(4, 'prueba 3', '1234567', 1, 'h'),
-(21, 'Respaldo ', 'numero 2', 1, 'm'),
-(22, 'Prueba ', '1', 1, 'm'),
-(23, 'Pruebaaa', '2', 1, 'l');
+INSERT INTO `project` (`id`, `title`, `description`, `management_time`, `time_d`, `user_id`, `priority`) VALUES
+(8, 'Time proyect', 'TIME', '1 Year', '2026-03-09 17:55:07', 1, 'h'),
+(12, 'Prueba tiempo', '123456578', '2 Year', '2026-03-09 22:40:45', 1, 'm');
 
 -- --------------------------------------------------------
 
@@ -102,15 +100,10 @@ CREATE TABLE `project_evaluation` (
   `id` int NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
+  `management_time` varchar(50) NOT NULL,
+  `time_p` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Volcado de datos para la tabla `project_evaluation`
---
-
-INSERT INTO `project_evaluation` (`id`, `title`, `description`, `user_id`) VALUES
-(5, 'Prueba de evaluacion', 'Sisa', 1);
 
 -- --------------------------------------------------------
 
@@ -123,13 +116,6 @@ CREATE TABLE `project_votes` (
   `project_id` int NOT NULL,
   `voted_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Volcado de datos para la tabla `project_votes`
---
-
-INSERT INTO `project_votes` (`user_id`, `project_id`, `voted_at`) VALUES
-(1, 5, '2026-03-08 01:47:18');
 
 -- --------------------------------------------------------
 
@@ -222,7 +208,7 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT de la tabla `project_evaluation`
 --
 ALTER TABLE `project_evaluation`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `user`

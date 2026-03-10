@@ -19,6 +19,7 @@
             'id' => $row['id'],
             'title' => $row['title'],
             'description' => $row['description'],
+            'managemenTime' => $row['management_time'],
             'has_voted' => $row['has_voted'] // 0 si no ha votado, 1 si ya votó
         ];
     };

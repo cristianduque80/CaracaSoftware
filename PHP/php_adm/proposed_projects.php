@@ -1,19 +1,20 @@
 <?php
     include('../dbOn.php');
-    $table = "project";
+    session_start();
+    ob_start();
+    $table = "project_evaluation";
 
-    $query = "SELECT * FROM $table";
+    $query = "SELECT * FROM $table ";
     $result = mysqli_query($connection,$query);
     $json = [];
     while($row = mysqli_fetch_array($result)){
-        $date = new DateTime($row['time_d']);
+        $date = new DateTime($row['time_p']);
 
         $json[] = [
             'id' => $row['id'],
             'title' => $row['title'],
             'description' => $row['description'],
             'managemenTime' => $row['management_time'],
-            'priority' => $row['priority'],
             'date' => $date->format('d/m/Y')
         ];
     };

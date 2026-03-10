@@ -2,6 +2,20 @@ $(document).ready(function(){
 
     fetchProject();//Busqueda de los projectos 
 
+    $(document).on('click','.delete',function(){//Eliminacion de projecto
+    let container = $(this).closest('tr');//Seleccion del elemento padre primario del projecto
+    let projectId = container.attr('id'); //Obtencion del ID del elemento padre primario
+    let projectitle = container.find('.title_project').text();
+
+    if(confirm(`Are you sure you want to delete the project: ${projectitle}?`)){
+        $.post('../../PHP/php_adm/project_delete.php',{projectId},function(response){//Enviamos el ID del elemento padre el cual es el ID relacionado al projecto para eliminarlo
+            console.log(response);
+            fetchProject();
+
+        });
+    }
+    })
+
     //Busqueda personalizada de proyectos
     $('#searchProject').on('keyup',function (){
         let value = $('#searchProject').val();
@@ -32,15 +46,21 @@ $(document).ready(function(){
 
                     template +=`
                     <tr id="${item.id}" class="${priorityClass}">
-                        <td id="title" class="border">${item.title}</td>
-                        <td id="description" class="border text-break">${item.description}</td>
-                        <td class="border col-2 text-center">
-                        <select class="form-select">
-                            <option hidden selected>None</option>
-                            <option value="h">High</option>
-                            <option value="m">Medium</option>
-                            <option value="l">Low</option>
-                        </select>
+                        <td class="border title_project">${item.title}</td>
+                        <td class="border text-break">${item.description}</td>
+                        <td class="border text-break">${item.date}</td>
+                        <td class="border text-break">${item.managemenTime}</td>
+                        <td class="border col-1 text-center">
+                            <select class="form-select"}">
+                                <option value="" ${!item.priority ? 'selected' : ''} hidden selected>None</option>
+                                <option value="h" ${item.priority == 'h' ? 'selected hidden' : ''}>High</option>
+                                <option value="m" ${item.priority == 'm' ? 'selected hidden' : ''}>Medium</option>
+                                <option value="l" ${item.priority == 'l' ? 'selected hidden' : ''}>Low</option>
+                            </select>
+                        </td>
+                        <td class="border col-1 text-center align-middle">
+                            <button class="btn btn-danger m-0 delete">Delete</button>
+                            <!---<button class="btn btn-primary m-0 update">Update</button>--->
                         </td>
                     </tr>
                 `
@@ -110,15 +130,21 @@ function fetchProject () {
 
                 template+=`
                     <tr class="${priorityClass}" id="${item.id}">
-                        <td id="title" class="border">${item.title}</td>
-                        <td id="description" class="border text-break">${item.description}</td>
-                        <td class="border col-2 text-center">
-                        <select class="form-select"}">
-                            <option value="" ${!item.priority ? 'selected' : ''} hidden selected>None</option>
-                            <option value="h" ${item.priority == 'h' ? 'selected hidden' : ''}>High</option>
-                            <option value="m" ${item.priority == 'm' ? 'selected hidden' : ''}>Medium</option>
-                            <option value="l" ${item.priority == 'l' ? 'selected hidden' : ''}>Low</option>
-                        </select>
+                        <td class="border title_project">${item.title}</td>
+                        <td class="border text-break">${item.description}</td>
+                        <td class="border text-break">${item.date}</td>
+                        <td class="border text-break">${item.managemenTime}</td>
+                        <td class="border col-1 text-center">
+                            <select class="form-select"}">
+                                <option value="" ${!item.priority ? 'selected' : ''} hidden selected>None</option>
+                                <option value="h" ${item.priority == 'h' ? 'selected hidden' : ''}>High</option>
+                                <option value="m" ${item.priority == 'm' ? 'selected hidden' : ''}>Medium</option>
+                                <option value="l" ${item.priority == 'l' ? 'selected hidden' : ''}>Low</option>
+                            </select>
+                        </td>
+                        <td class="border col-1 text-center align-middle">
+                            <button class="btn btn-danger m-0 delete">Delete</button>
+                            <!---<button class="btn btn-primary m-0 update">Update</button>--->
                         </td>
                     </tr>
                 `;   

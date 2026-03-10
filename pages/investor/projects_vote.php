@@ -80,6 +80,7 @@
                     <tr>
                         <th class="col-2 text-center border">Title</th>
                         <th class="text-center border">Description</th>
+                        <th class="col-2 text-center border">Management Time</th>
                     </tr>
                 </thead>
                 <tbody id="projects">

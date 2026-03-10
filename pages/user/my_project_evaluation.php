@@ -21,7 +21,7 @@
             <h4 class="text-light"><b>CaracaSoftware</b></h4>
         </div>
         <div class="options list-group gap-3 mt-5">
-            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="my_profile.php">
+            <!-- <a class="list-group-item-primary list-group-item-action text-light opt_user" href="my_profile.php">
                 <div class="row">
                     <div class="col-1 ms-2" >
                         <img class="text-light img_nav" src="../../Style/icons/user.svg" alt="">
@@ -30,7 +30,7 @@
                         My Profile
                     </div>
                 </div>                
-            </a>
+            </a> -->
             <a class="list-group-item-primary list-group-item-action text-light opt_user" href="create_project.php">
                 <div class="row">
                     <div class="col-1 ms-2">
@@ -47,7 +47,7 @@
                         <img class="text-light img_nav" src="../../Style/icons/myProjects.svg" alt="">
                     </div>
                     <div class="col" >
-                        My Projects
+                        My Approved projects 
                     </div>
                 </div>                
             </a>
@@ -57,7 +57,7 @@
                         <img class="text-light img_nav" src="../../Style/icons/myProjects.svg" alt="">
                     </div>
                     <div class="col" >
-                        My Projects evaluation
+                        My Proposed projects 
                     </div>
                 </div>                
             </a>
@@ -88,9 +88,10 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="col-3 text-center border">Title</th>
+                        <th class="col-2 text-center border">Title</th>
                         <th class="text-center border">Description</th>
-                        <th class="text-center border">Management Time</th>
+                        <th class="col-2 text-center border">Management Time</th>
+                        <th class="col-2 text-center border">Date</th>
                     </tr>
                 </thead>
                 <tbody id="my_project">

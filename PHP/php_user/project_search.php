@@ -12,10 +12,15 @@
 
         $json = [];
         while($row = mysqli_fetch_array($result)){
+            $date = new DateTime($row['time_d']);
+
             $json[] =[
                 'id' => $row['id'],
                 'title' => $row['title'],
-                'description' => $row['description']
+                'description' => $row['description'],
+                'date' => $date->format('d/m/Y'),
+                'managemenTime' => $row['management_time'],
+                'priority' => $row['priority']
             ]; 
         };
         $jsonString = json_encode($json);

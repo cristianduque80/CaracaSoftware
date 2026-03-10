@@ -34,10 +34,29 @@ $(document).ready(function(){
             let project = JSON.parse (response);
             let template = '';
             project.forEach(item =>{
+                let priorityClass = '';
+                let priority='';
+
+                if(item.priority=='h'){
+                    priorityClass='priority-h';
+                    priority="high";
+                }else if(item.priority=='m' ){
+                    priorityClass='priority-m';
+                    priority="medium";
+                }else if(item.priority=='l'){
+                    priorityClass='priority-l';
+                    priority="low";
+                }else if(!item.priority){
+                    priority = "none";
+                }
+
                 template +=`
-                <tr id=${item.id}>
+                <tr id="${item.id}" class="${priorityClass}">
                     <td id="title" class="border">${item.title}</td>
                     <td id="description" class="border text-break">${item.description}</td>
+                    <td id="description" class="border text-break">${item.date}</td>
+                    <td id="description" class="border text-break">${item.managemenTime}</td>
+                    <td class="border col-2">${priority}</td>
                 </tr>
             `
             });
@@ -52,25 +71,44 @@ $(document).ready(function(){
 //Funcion de Busqueda de projectos
 function fetchProject () {
         $.get('../..//PHP/php_user/my_project.php', function(response){
-        let list_projects = JSON.parse(response);
-        // console.log(list_projects);
-        let template = '';
-        if (list_projects=="Empty"){
-            template = `
+            let project = JSON.parse (response);
+            console.log(project);
+            let template = '';
+            if(project.length==0){
+                template = `
                 <tr>
                     <th colspan="2" class="text-center border-0"><h3>Projects Empty</h3></th>
                 </tr>
             `;
-        }else{
-            list_projects.forEach(item =>{
-            template+=`
-                <tr id=${item.id}>
-                    <td id="title" class="border">${item.title}</td>
-                    <td id="description" class="border text-break">${item.description}</td>
-                </tr>
-            `;   
-        });
-        }
+            }else{
+                project.forEach(item =>{
+                    let priorityClass = '';
+                    let priority='';
+
+                    if(item.priority=='h'){
+                        priorityClass='priority-h';
+                        priority="high";
+                    }else if(item.priority=='m' ){
+                        priorityClass='priority-m';
+                        priority="medium";
+                    }else if(item.priority=='l'){
+                        priorityClass='priority-l';
+                        priority="low";
+                    }else if(!item.priority){
+                        priority = "none";
+                    }
+
+                    template +=`
+                    <tr id="${item.id}" class="${priorityClass}">
+                        <td id="title" class="border">${item.title}</td>
+                        <td id="description" class="border text-break">${item.description}</td>
+                        <td id="description" class="border text-break">${item.date}</td>
+                        <td id="description" class="border text-break">${item.managemenTime}</td>
+                        <td class="border col-2">${priority}</td>
+                    </tr>
+                `
+                });
+            }
        
         $('#my_project').html(template);
     });

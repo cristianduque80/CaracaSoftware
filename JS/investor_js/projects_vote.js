@@ -65,6 +65,7 @@ function renderTable(response) {
                 <tr id="${item.id}">
                     <td class="border title_project">${item.title}</td>
                     <td class="border text-break">${item.description}</td>
+                    <td class="border text-break">${item.managemenTime}</td>
                     <td class="border align-middle col-2 text-center">
                         <button class="btn ${btnClass} btn-vote" ${btnDisabled}>
                             <img src="../../Style/icons/like.svg" alt="">

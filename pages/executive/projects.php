@@ -37,21 +37,11 @@
                         <img class="text-light img_nav" src="../../Style/icons/myProjects.svg" alt="">
                     </div>
                     <div class="col" >
-                        Projects priority
+                        Approved projects
                     </div>
                 </div>                
             </a>
-            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="projects.php">
-                <div class="row">
-                    <div class="col-1 ms-2" >
-                        <img class="text-light img_nav" src="../../Style/icons/myProjects.svg" alt="">
-                    </div>
-                    <div class="col" >
-                        Launched projects
-                    </div>
-                </div>                
-            </a>
-            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="projects.php">
+            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="proposed_projects.php">
                 <div class="row">
                     <div class="col-1 ms-2" >
                         <img class="text-light img_nav" src="../../Style/icons/myProjects.svg" alt="">
@@ -81,16 +71,18 @@
     </div>
 
     <main class="main_content">
-        <div class="col-7">
+        <div class="col-10">
             <input class="form-control mb-3" type="text" name="" id="searchProject" placeholder="Search . . . . . .">
         </div>
-        <div class="col-7">
+        <div class="col-10">
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="col-4 text-center border">Title</th>
+                        <th class="col-2 text-center border">Title</th>
                         <th class="text-center border">Description</th>
-                        <th class="text-center border">Priority</th>
+                        <th class="col-1 text-center border">Approval date</th>
+                        <th class="col-2 text-center border">Management Time</th>
+                        <th class="col-1 text-center border">Priority</th>
                     </tr>
                 </thead>
                 <tbody id="projects">

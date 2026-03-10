@@ -23,6 +23,7 @@ $(document).ready(function(){
                 project.forEach(item =>{
                     let priorityClass = '';
                     let priority='';
+
                     if(item.priority=='h'){
                         priorityClass='priority-h';
                         priority="high";
@@ -32,12 +33,16 @@ $(document).ready(function(){
                     }else if(item.priority=='l'){
                         priorityClass='priority-l';
                         priority="low";
+                    }else if(!item.priority){
+                        priority = "none";
                     }
 
                     template +=`
                     <tr id="${item.id}" class="${priorityClass}">
                         <td id="title" class="border">${item.title}</td>
                         <td id="description" class="border text-break">${item.description}</td>
+                        <td id="description" class="border text-break">${item.date}</td>
+                        <td id="description" class="border text-break">${item.managemenTime}</td>
                         <td class="border col-2">${priority}</td>
                     </tr>
                 `
@@ -83,13 +88,14 @@ function fetchProject () {
                     <tr class="${priorityClass}" id="${item.id}">
                         <td id="title" class="border">${item.title}</td>
                         <td id="description" class="border text-break">${item.description}</td>
+                        <td id="description" class="border text-break">${item.date}</td>
+                        <td id="description" class="border text-break">${item.managemenTime}</td>
                         <td class="border col-2">${priority}</td>
                     </tr>
                 `;   
         });
         }
         $('#projects').html(template);
-        
     });
 }
 

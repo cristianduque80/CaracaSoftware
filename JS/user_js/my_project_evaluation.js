@@ -61,25 +61,25 @@ function fetchProject () {
     });
 }
 
-//Funcion para actualizar projecto
-function update (projecId){
-    $('#update').on('click',function (e){
-        let update_project = {
-            title: $('#project_title').val(),
-            description: $('#project_description').val(),
-            id: projecId
-        };
+// //Funcion para actualizar projecto
+// function update (projecId){
+//     $('#update').on('click',function (e){
+//         let update_project = {
+//             title: $('#project_title').val(),
+//             description: $('#project_description').val(),
+//             id: projecId
+//         };
 
-        $.post('../../PHP/php_user/project_update.php',update_project,function (response){
-            fetchProject();
-            $('#form_project').trigger('reset');
-            $('.update-overlay').hide();
-            console.log(response);
-        }); 
+//         $.post('../../PHP/php_user/project_update.php',update_project,function (response){
+//             fetchProject();
+//             $('#form_project').trigger('reset');
+//             $('.update-overlay').hide();
+//             console.log(response);
+//         }); 
         
-        e.preventDefault();
-    });
-}
+//         e.preventDefault();
+//     });
+// }
 
 //Funcion para renderizar tabla
 function renderTable (type_select){
@@ -90,6 +90,7 @@ function renderTable (type_select){
                     <td class="border title_project">${item.title}</td>
                     <td class="border text-break">${item.description}</td>
                     <td class="border text-break">${item.managemenTime}</td>
+                    <td class="border text-break">${item.date}</td>
                     <td class="border col-2 text-center align-middle">
                         <button class="btn btn-danger m-0 delete">Delete</button>
                         <!---<button class="btn btn-primary m-0 update">Update</button>--->

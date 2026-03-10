@@ -21,7 +21,7 @@
             <h4 class="text-light"><b>CaracaSoftware</b></h4>
         </div>
         <div class="options list-group gap-3 mt-5">
-            <a class="list-group-item-primary list-group-item-action text-light opt_user" href="my_profile.php">
+            <!-- <a class="list-group-item-primary list-group-item-action text-light opt_user" href="my_profile.php">
                 <div class="row">
                     <div class="col-1 ms-2" >
                         <img class="text-light img_nav" src="../../Style/icons/user.svg" alt="">
@@ -30,7 +30,7 @@
                         My Profile
                     </div>
                 </div>                
-            </a>
+            </a> -->
             <a class="list-group-item-primary list-group-item-action text-light opt_user" href="create_project.php">
                 <div class="row">
                     <div class="col-1 ms-2">
@@ -47,7 +47,7 @@
                         <img class="text-light img_nav" src="../../Style/icons/myProjects.svg" alt="">
                     </div>
                     <div class="col" >
-                        My Projects
+                        My Approved projects 
                     </div>
                 </div>                
             </a>
@@ -57,7 +57,7 @@
                         <img class="text-light img_nav" src="../../Style/icons/myProjects.svg" alt="">
                     </div>
                     <div class="col" >
-                        My Projects evaluation
+                        My Proposed projects 
                     </div>
                 </div>                
             </a>
@@ -81,15 +81,18 @@
     </div>
 
     <main class="main_content">
-        <div class="col-7">
+        <div class="col-10">
             <input class="form-control mb-3" type="text" name="" id="searchProject" placeholder="Search . . . . . .">
         </div>
-        <div class="col-7">
+        <div class="col-10">
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="col-3 text-center border">Title</th>
+                        <th class="col-2 text-center border">Title</th>
                         <th class="text-center border">Description</th>
+                        <th class="col-1 text-center border">Approval date</th>
+                        <th class="col-2 text-center border">Management Time</th>
+                        <th class="col-1 text-center border">Priority</th>
                     </tr>
                 </thead>
                 <tbody id="my_project">
@@ -100,7 +103,7 @@
 
     </main>
 
-    <div class="update-overlay" style = "display:none">
+    <!-- <div class="update-overlay" style = "display:none">
         <div class="card shadow-sm p-3 card_project shadow">
             <div class="card-head card-head-project d-flex justify-content-between align-items-center" >
                 <h2 class="text-primary card-title m-0"><b>Update Project</b></h2>
@@ -128,7 +131,7 @@
                 <div id="alertError" class="w-100 alert alert-dismissible alert-danger mt-2">  </div>
                 <div id="alertSuccess" class="w-100 alert alert-dismissible alert-success mt-2">  </div>
             </div>-->
-    </div>
+    </div> -->
     <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
     <script type="module" src="../../JS/user_js/my_project.js"></script>
 </body>
